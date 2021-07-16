@@ -1,17 +1,22 @@
-# this will be the main program for inspecting TESS light curves for stellar rotation
+"""
+this will be the main program for inspecting TESS light curves for stellar rotation
+"""
+
+# Import built-in python modules
+import os
+import sys
 from glob import glob
 import time
+import warnings
+warnings.filterwarnings('ignore')
 
-# Import relevant modules
+# Import relevant third-party modules
 import numpy as np
 import pandas as pd
 import matplotlib.pylab as pylab
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
-from glob import glob
 from astropy.io import fits
-import warnings
-warnings.filterwarnings('ignore')
 from astropy.timeseries import LombScargle
 
 # Used for tess_inspect_not_working - probably not needed anymore?
@@ -19,10 +24,9 @@ import ipywidgets as widgets
 from ipywidgets import interactive
 from IPython.display import display
 
-import os
-import sys
 ############# If you move these programs you will need to update these directories and names #############
 sys.path.append('/content/gdrive/My Drive/')
+# Import our package modules
 from . import myDir as myDir
 from .status import read_status
 from .lightcurves import find_sap, find_cpm
@@ -30,7 +34,6 @@ from .lightcurves import load_cpm, load_cpm_fromfile, load_sap
 from .ffis import find_ffi, load_ffi_fromfile, ffi_test
 from .sheet import get_prot_table, stars_todo, load_sheet
 
-import time
 ####################################################################################
 
 # Auto run
