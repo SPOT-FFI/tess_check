@@ -5,6 +5,7 @@ Module to contain functions related to spreadsheet users
 import os, sys
 
 import numpy as np
+import pandas as pd
 import gspread
 from google.colab import auth
 from oauth2client.client import GoogleCredentials
@@ -12,7 +13,7 @@ from oauth2client.client import GoogleCredentials
 ############# If you move these programs you will need to update these directories and names #############
 sys.path.append('/content/gdrive/My Drive/')
 from . import myDir as myDir
-from .status import read_status
+from .status import read_status, make_status
 from .sheet import load_sheet, get_prot_table
 
 ####################################################################################

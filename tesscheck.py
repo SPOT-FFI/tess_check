@@ -1,6 +1,6 @@
 # this will be the main program for inspecting TESS light curves for stellar rotation
 from glob import glob
-
+import time
 
 # Import relevant modules
 import numpy as np
@@ -28,7 +28,7 @@ from .status import read_status
 from .lightcurves import find_sap, find_cpm
 from .lightcurves import load_cpm, load_cpm_fromfile, load_sap
 from .ffis import find_ffi, load_ffi_fromfile, ffi_test
-from .sheet import get_prot_table
+from .sheet import get_prot_table, stars_todo, load_sheet
 
 import time
 ####################################################################################
@@ -57,12 +57,13 @@ def tesscheck_auto(project_name, tess_cycle=1, redo=False):
         for i in range(number_stars):
             if star_list[i][0] != 'n':
                 star = make_star(target_data,star_list[i])
-                star = make_star(target_data,star_list[i])
+                # star = make_star(target_data,star_list[i])
                 print(str(i)+'  '+star_list[i])
                 tstar = initiate_star(star,project_name,user=user)
                 tstar['which_sectors'] = cycle_sectors
                 display_tess_lite_v2(tstar, save = False, noplot = True)
                 update_prot_table(target_table, tstar)
+                time.sleep(1)
     return
 
 ####################################################################################

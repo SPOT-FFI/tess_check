@@ -10,6 +10,7 @@ import numpy as np
 sys.path.append('/content/gdrive/My Drive/')
 from . import myDir as myDir
 from .sheet import load_sheet, get_prot_table
+from .utils import list_to_string
 
 #############################################################################
 def make_status(project_name, add_user='', add_step = '', change_auto='', reset=False):
